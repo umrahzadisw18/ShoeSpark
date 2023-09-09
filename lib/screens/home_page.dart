@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping_cart/screens/cart_screen.dart';
 import 'package:shopping_cart/screens/catalog_screen.dart';
+import 'package:shopping_cart/screens/signin_screen.dart';
 import 'package:shopping_cart/widget/bottom_navbar.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,6 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final user = FirebaseAuth.instance.currentUser!;
   int _Selectedindex = 0;
 
   void navigateBottombar(int index) {
@@ -53,7 +56,7 @@ class _HomePageState extends State<HomePage> {
           );
         }),
       ),
-            drawer: Drawer(
+      drawer: Drawer(
         backgroundColor: Colors.grey[900],
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -65,6 +68,10 @@ class _HomePageState extends State<HomePage> {
                   "https://th.bing.com/th/id/R.b9bd98e0d6dba728c675a276f0ede1af?rik=4ECPGMPXui7g5A&riu=http%3a%2f%2f1000marcas.net%2fwp-content%2fuploads%2f2021%2f06%2fFoot-Shop-logo.png&ehk=ih8XSqPmXMNutNZ22kZli1tla3OEewFC5qsPCEcER3c%3d&risl=&pid=ImgRaw&r=0",
                   color: Colors.white,
                 )),
+                Text(
+                  user.email!,
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Divider(
@@ -74,6 +81,7 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                   padding: const EdgeInsets.only(left: 25.0),
                   child: ListTile(
+                    onTap: () => CatalogScreen(),
                     leading: Icon(
                       Icons.home,
                       color: Colors.white,
@@ -102,6 +110,13 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.only(left: 25.0, bottom: 25),
               child: ListTile(
+                onTap: () {
+                  FirebaseAuth.instance.signOut().then((value) {
+                    print("Signed Out");
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SignIn()));
+                  });
+                },
                 leading: Icon(
                   Icons.logout,
                   color: Colors.white,

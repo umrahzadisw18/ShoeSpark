@@ -29,40 +29,6 @@ class CatalogCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return Padding(
-    //   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-    //   child: Row(
-    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //     children: [
-    //       CircleAvatar(
-    //         radius: 40,
-    //         backgroundImage: NetworkImage(
-    //           productController.products[index].imagepath,
-    //         ),
-    //       ),
-    //       SizedBox(
-    //         width: 20,
-    //       ),
-    //       Expanded(
-    //           child: Text(
-    //         productController.products[index].name,
-    //         style: TextStyle(
-    //           fontWeight: FontWeight.bold,
-    //           fontSize: 18,
-    //         ),
-    //       )),
-    //       SizedBox(
-    //         width: 20,
-    //       ),
-    //       Expanded(child: Text('${productController.products[index].price}')),
-    //       IconButton(
-    //           onPressed: () {
-    //             cartController.addProducts(productController.products[index]);
-    //           },
-    //           icon: Icon(Icons.add_circle))
-    //     ],
-    //   ),
-    // );
     return Container(
       margin: EdgeInsets.only(left: 25),
       width: 250,

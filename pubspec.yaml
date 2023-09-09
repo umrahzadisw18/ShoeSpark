@@ -39,6 +39,7 @@ dependencies:
   cloud_firestore: ^4.9.1
   firebase_core: ^2.15.1
   google_nav_bar: ^5.0.6
+  firebase_auth: ^4.9.0
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +70,7 @@ flutter:
     - images/party.png
     - images/Rhine.png
     - images/Shoe1.jpg
+    - images/shop logo.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

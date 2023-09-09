@@ -7,9 +7,6 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // if(CartProducts()==Null){
-
-    // }
     return Container(
       color: Colors.grey[300],
       child: Column(
