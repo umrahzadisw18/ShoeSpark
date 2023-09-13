@@ -65,7 +65,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                   SignInSignupButton(context, false, () {
                     if(_key.currentState!.validate()){
-                  //    try{
+                    //try{
                     FirebaseAuth.instance.createUserWithEmailAndPassword(
                             email: _emailTextController.text,
                             password: _passwordTextController.text)
@@ -73,13 +73,14 @@ class _SignUpState extends State<SignUp> {
                       print("New Account Created");
                       Navigator.push(context,
                           MaterialPageRoute(builder: ((context) => HomePage())));
-                    }).onError((error, stackTrace) {
+                    })
+                    .onError((error, stackTrace) {
                     errorMessage = error.toString();
                     }
                     );
-                   // errorMessage='';
+                      // errorMessage='';
                       // } on FirebaseAuthException catch(error){
-                      //   errorMessage= error.message!;
+                      //   errorMessage= error.toString();
                       // }
                     }
                   })

@@ -7,12 +7,13 @@ class CatalogProducts extends StatelessWidget {
   final productController = Get.put(ProductController());
   CatalogProducts({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return Obx(
       () => Flexible(
         child: ListView.builder(
-           scrollDirection: Axis.horizontal,
+          scrollDirection: Axis.horizontal,
             itemCount: productController.products.length,
             itemBuilder: (BuildContext context, int index) =>
                 CatalogCard(index: index)),

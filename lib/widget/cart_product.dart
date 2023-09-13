@@ -7,10 +7,15 @@ class CartProducts extends StatelessWidget {
   final CartController controller = Get.find();
   CartProducts({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return Obx(() => 
-      SizedBox(
+    controller.products.length == 0
+          ? Align(
+            alignment: Alignment.bottomCenter,
+            child: Image.asset("images/Cart-empty.png",height: 250, width: 250,))
+      : SizedBox(
         height:600,
         child: ListView.builder(
             itemCount: controller.products.length,
@@ -41,6 +46,7 @@ class CartProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
       child: Container(
@@ -74,20 +80,5 @@ class CartProductCard extends StatelessWidget {
         ),
       ),
     );
-    //  return Container(
-    //   margin: EdgeInsets.only(bottom: 10),
-    //   decoration: BoxDecoration(
-    //     color: Colors.grey[100],
-    //     borderRadius: BorderRadius.circular(10),
-    //   ),
-    //   child: ListTile(
-    //     leading: Image.asset(widget.shoe.imagepath, width: 80,),
-    //     title: Text(widget.shoe.name),
-    //     subtitle: Text(widget.shoe.price),
-    //     trailing: IconButton(
-    //       icon: Icon(Icons.delete,),
-    //       onPressed: removeItemFromCart),
-    //   ),
-    // );
   }
 }

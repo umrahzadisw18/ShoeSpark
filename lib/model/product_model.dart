@@ -51,4 +51,7 @@ final String imagepath, description;
       description: snap['description']);
       return product;
   }
+
+  toLowerCase() {}
+
 }
