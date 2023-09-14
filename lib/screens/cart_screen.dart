@@ -10,7 +10,6 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return 
-    // product.isEmpty ? Text("cart is Empty") :
     Container(
       color: Colors.grey[300],
       child: Column(

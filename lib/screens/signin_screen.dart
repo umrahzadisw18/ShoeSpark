@@ -17,9 +17,17 @@ class _SignInState extends State<SignIn> {
   TextEditingController _passwordTextController = TextEditingController();
   final GlobalKey<FormState> _key= GlobalKey<FormState>();
   String errorMessage='';
+   //bool _obscureText = true;
 
+//  Function? _toggle(){
+//     setState(() {
+//       _obscureText = !_obscureText;
+//     });
+//     return null;
+//   }
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -39,12 +47,14 @@ class _SignInState extends State<SignIn> {
                   //Text("Shoe Spark"),
                   SizedBox(height: 20),
                   reusableTextField("Enter UserName", Icons.person_outline, false,
-                      _emailTextController),
+                      _emailTextController,
+                      ),
                   SizedBox(
                     height: 20,
                   ),
                   reusableTextField("Enter Password", Icons.lock_outlined, true,
-                      _passwordTextController),
+                      _passwordTextController, 
+                      ),
                   SizedBox(
                     height: 20,
                   ),

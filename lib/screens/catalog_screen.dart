@@ -9,27 +9,6 @@ class CatalogScreen extends StatefulWidget {
 }
 
 class _CatalogScreenState extends State<CatalogScreen> {
-  // final ProductController productController = Get.find();
-
-  // List<Map<String, dynamic>> _foundproducts=[];
-
-  // void _runFilter(String enterKeyword){
-  //   List<Map<String,dynamic>> results=[];
-  //   if(enterKeyword.isEmpty){
-  //     results= productController as List<Map<String, dynamic>>;
-  //   }
-  //   else{
-  //     results = productController.products.where((Product)=>
-  //       productController.products[index].name.toLowerCase().contains(enterKeyword.toLowerCase())).cast<Map<String, dynamic>>()
-  //       .toList();
-  //   }
-  // }
-
-  // @override
-  // void initState() {
-  // _foundproducts= productController as List<Map<String, dynamic>>;
-  //   super.initState();
-  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +29,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
               child: TextField(
            //     onChanged: (value) => _runFilter(value),
                 decoration: InputDecoration(
-                  labelText: "Search",
+                  hintText: "Search",
                   suffixIcon: Icon(Icons.search)
                 ),
                 

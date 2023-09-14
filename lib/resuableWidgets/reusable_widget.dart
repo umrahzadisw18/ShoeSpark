@@ -12,17 +12,18 @@ Image Logowidget(String imageName) {
 
 TextFormField reusableTextField(String text, IconData icon, bool isPasswordType,
     TextEditingController controller) {
+  bool _obscureText = true;
   return TextFormField(
-    validator:
-      text=="Enter Email-Id" ? validateEmail : text=="Enter Password"?
-      validatePassword :validateName,
-
+    validator: text == "Enter Email-Id"
+        ? validateEmail
+        : text == "Enter Password"
+            ? validatePassword
+            : validateName,
     controller: controller,
-    obscureText: isPasswordType,
+    obscureText: _obscureText,
     enableSuggestions: !isPasswordType,
     autocorrect: !isPasswordType,
     cursorColor: Colors.black,
-
     style: TextStyle(
       color: Colors.black.withOpacity(0.9),
     ),
@@ -31,6 +32,19 @@ TextFormField reusableTextField(String text, IconData icon, bool isPasswordType,
         icon,
         color: Colors.black54,
       ),
+      suffixIcon: isPasswordType
+          ? IconButton(
+              icon:
+                  // ignore: dead_code
+                  Icon( _obscureText ? Icons.visibility : Icons.visibility_off),
+              onPressed: () {
+                
+                _obscureText=!_obscureText;
+              //_toggle();
+              },
+              color: Colors.black54,
+            )
+          : Icon(Icons.email),
       labelText: text,
       labelStyle: TextStyle(
         color: Colors.black.withOpacity(0.9),

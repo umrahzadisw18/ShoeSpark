@@ -16,6 +16,7 @@ class _SignUpState extends State<SignUp> {
   TextEditingController _usernameTextController = TextEditingController();
    final GlobalKey<FormState> _key= GlobalKey<FormState>();
    String errorMessage= '';
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,12 +48,12 @@ class _SignUpState extends State<SignUp> {
                     height: 20,
                   ),
                   reusableTextField("Enter UserName", Icons.person_outline, false,
-                      _usernameTextController),
+                      _usernameTextController,),
                   SizedBox(
                     height: 20,
                   ),
                   reusableTextField("Enter Email-Id", Icons.person_outline, false,
-                      _emailTextController),
+                      _emailTextController,),
                   SizedBox(
                     height: 20,
                   ),
