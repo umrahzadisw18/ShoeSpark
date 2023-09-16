@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Product {
   final String name;
-  final int price;
-final String imagepath, description;
+  final String price;
+  final String imagepath, description;
 
   Product(
       {required this.name,

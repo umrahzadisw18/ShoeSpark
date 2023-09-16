@@ -20,7 +20,7 @@ TextFormField reusableTextField(String text, IconData icon, bool isPasswordType,
             ? validatePassword
             : validateName,
     controller: controller,
-    obscureText: _obscureText,
+    obscureText: isPasswordType,
     enableSuggestions: !isPasswordType,
     autocorrect: !isPasswordType,
     cursorColor: Colors.black,
@@ -39,7 +39,7 @@ TextFormField reusableTextField(String text, IconData icon, bool isPasswordType,
                   Icon( _obscureText ? Icons.visibility : Icons.visibility_off),
               onPressed: () {
                 
-                _obscureText=!_obscureText;
+              //  _obscureText=!_obscureText;
               //_toggle();
               },
               color: Colors.black54,

@@ -10,4 +10,11 @@ class FirestoreDB{
       return snapshot.docs.map((doc) => Product.fromSnapshot(doc)).toList();
     });
   }
+  Stream<List<Product>> getAllProducts1(){
+    return _firebaseFirestore.collection('products1')
+    .snapshots()
+    .map((snapshot) {
+      return snapshot.docs.map((doc) => Product.fromSnapshot(doc)).toList();
+    });
+  }
 }

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_cart/widget/catalog_product.dart';
+import 'package:shopping_cart/widget/men_product.dart';
 
-class CatalogScreen extends StatefulWidget {
-  CatalogScreen({super.key});
+class MenCatalogScreen extends StatefulWidget {
+  const MenCatalogScreen({super.key});
 
   @override
-  State<CatalogScreen> createState() => _CatalogScreenState();
+  State<MenCatalogScreen> createState() => _MenCatalogScreenState();
 }
 
-class _CatalogScreenState extends State<CatalogScreen>{
-  @override
+class _MenCatalogScreenState extends State<MenCatalogScreen> {
+ @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
@@ -69,7 +69,7 @@ class _CatalogScreenState extends State<CatalogScreen>{
           SizedBox(
             height: 10,
           ),
-          CatalogProducts(),
+          MenProducts(),
           Padding(
             padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
             child: Divider(

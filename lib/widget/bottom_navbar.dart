@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
+// ignore: must_be_immutable
 class BottomNavbar extends StatelessWidget {
   void Function(int)? onTabChange;
   BottomNavbar({super.key, required this.onTabChange});
