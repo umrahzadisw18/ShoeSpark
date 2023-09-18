@@ -9,7 +9,7 @@ class MenCatalogScreen extends StatefulWidget {
 }
 
 class _MenCatalogScreenState extends State<MenCatalogScreen> {
- @override
+@override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
@@ -76,6 +76,7 @@ class _MenCatalogScreenState extends State<MenCatalogScreen> {
               color: Colors.white,
             ),
           ),
+           SizedBox(height: 70,),
         ],
       )),
     );

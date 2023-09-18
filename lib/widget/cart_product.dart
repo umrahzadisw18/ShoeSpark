@@ -14,7 +14,9 @@ class CartProducts extends StatelessWidget {
     controller.products.length == 0
           ? Align(
             alignment: Alignment.bottomCenter,
-            child: Image.asset("images/Cart-empty.png",height: 250, width: 250,))
+            child:Text("Cart is Empty", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+            // Image.asset("images/Cart-empty.png",height: 250, width: 250,)
+            )
       : SizedBox(
         height:600,
         child: ListView.builder(

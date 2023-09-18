@@ -33,7 +33,7 @@ class CartController extends GetxController {
   get total => _products.entries
       .map((product) => product.key.price * product.value)
       .toList()
-      .reduce((value, element) => value+element)
-      .toStringAsFixed(2);
+      .reduce((value, element) => value+element);
+     // .toStringAsFixed(2);
     
 }

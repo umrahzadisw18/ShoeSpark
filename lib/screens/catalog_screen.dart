@@ -76,6 +76,7 @@ class _CatalogScreenState extends State<CatalogScreen>{
               color: Colors.white,
             ),
           ),
+          SizedBox(height: 70,),
         ],
       )),
     );

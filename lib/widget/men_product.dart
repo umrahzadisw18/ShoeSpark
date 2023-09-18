@@ -14,7 +14,8 @@ class MenProducts extends StatelessWidget {
       () => Flexible(
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
-            itemCount: productController.products1.length,
+            itemCount:// 4,
+             productController.products.length,
             itemBuilder: (BuildContext context, int index) =>
                 CatalogCard(index: index)),
       ),
@@ -42,13 +43,13 @@ class CatalogCard extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Image.network(
-              productController.products1[index].imagepath,
+            child: Image.network(//"",
+              productController.products[index].imagepath,
               height: 180,
             ),
           ),
-          Text(
-            productController.products1[index].description,
+          Text(//"Style with confidently",
+            productController.products[index].description,
             style: TextStyle(
               color: Colors.grey[600],
             ),
@@ -62,8 +63,8 @@ class CatalogCard extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      productController.products1[index].name,
+                    Text(//"Peshawri",
+                      productController.products[index].name,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
@@ -72,8 +73,8 @@ class CatalogCard extends StatelessWidget {
                     SizedBox(
                       height: 5,
                     ),
-                    Text(
-                      '${productController.products1[index].price}',
+                    Text(//'12.0',
+                      '${productController.products[index].price}',
                       style: TextStyle(color: Colors.grey),
                     ),
                   ],
@@ -88,7 +89,7 @@ class CatalogCard extends StatelessWidget {
                     ),
                     child: IconButton(
                       onPressed: (){
-                        cartController.addProducts(productController.products1[index]);
+                        cartController.addProducts(productController.products[index]);
                       },
                       icon: Icon(Icons.add),
                       color: Colors.white, 

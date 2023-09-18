@@ -5,7 +5,6 @@ import 'package:shopping_cart/screens/catalog_screen.dart';
 import 'package:shopping_cart/screens/kids_catalog.dart';
 import 'package:shopping_cart/screens/menCatalog.dart';
 import 'package:shopping_cart/screens/signin_screen.dart';
-import 'package:shopping_cart/widget/bottom_navbar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,18 +15,17 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final user = FirebaseAuth.instance.currentUser!;
-  int _Selectedindex = 0;
-
-  void navigateBottombar(int index) {
-    setState(() {
-      _Selectedindex = index;
-    });
-  }
-
-  final List<Widget> _pages = [
-    CatalogScreen(),
-    CartScreen(),
-  ];
+  //  final CartController controller = Get.find();
+  // int _Selectedindex = 0;
+  // void navigateBottombar(int index) {
+  //   setState(() {
+  //     _Selectedindex = index;
+  //   });
+  // }
+  // final List<Widget> _pages = [
+  //   CatalogScreen(),
+  //   CartScreen(),
+  // ];
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -64,7 +62,26 @@ class _HomePageState extends State<HomePage> {
               },
             );
           }),
-          
+          actions:[ Builder(builder: (context) {
+            return IconButton(
+              icon: Padding(
+                padding: const EdgeInsets.only(left: 18.0),
+                child: Badge(
+                  label: Text('2'),
+                  //'$controller.products.length'),
+                  child: Icon(
+                    Icons.shopping_cart,
+                    color: Colors.black,
+                    size: 30,
+                  ),
+                ),
+              ),
+              onPressed: () {
+            Navigator.push(context,MaterialPageRoute(builder:((context) => CartScreen())));
+              },
+            );
+          }),
+          ] 
         ),
         drawer: Drawer(
           backgroundColor: Colors.grey[900],
@@ -141,17 +158,32 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         backgroundColor: Colors.grey[300],
-        bottomNavigationBar: BottomNavbar(
-          onTabChange: (index) => navigateBottombar(index),
-        ),
+        floatingActionButton:  Container(
+          height: 70,
+          width: 80,
+          child: FloatingActionButton(
+            tooltip: 'Check your Cart',
+          shape: CircleBorder(),
+            elevation: 0.0,
+            child: new Icon(Icons.shopping_bag, color: Colors.grey[700],size: 40,),
+            backgroundColor:Colors.grey.shade100,
+              onPressed: (){
+          Navigator.push(context,MaterialPageRoute(builder:((context) => CartScreen())));
+              } ), ),
+    floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+  
+        // bottomNavigationBar: BottomNavbar(
+        //   onTabChange: (index) => _Selectedindex,
+        //   //navigateBottombar(index),
+        // ),
         body:TabBarView(
           children: [
             CatalogScreen(),
             MenCatalogScreen(),
             KidsCatalogScreen(),
-           // _pages[_Selectedindex],
         ],),
-          //_pages[_Selectedindex],
+        
+        //  _pages[_Selectedindex],
       ),
     );
   }

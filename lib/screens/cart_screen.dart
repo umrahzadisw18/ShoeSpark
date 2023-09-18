@@ -10,16 +10,30 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return 
-    Container(
-      color: Colors.grey[300],
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,   
-        children: [
-          Flexible(child: CartProducts()),
-          Flexible(child: CartTotal()),
-        ],
+    Scaffold(
+         backgroundColor: Colors.grey[300],
+      appBar: AppBar(
+         title: Center(child: Text("My Cart",
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 1,
+            ),
+          )),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
       ),
-    
+      body: Container(
+        color: Colors.grey[300],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,   
+          children: [
+            Flexible(child: CartProducts()),
+            Flexible(child: CartTotal()),
+          ],
+        ),
+      
+      ),
     );
   }
 }

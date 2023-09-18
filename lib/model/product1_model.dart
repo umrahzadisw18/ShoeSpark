@@ -1,18 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class Product {
+class Product1 {
   final String name;
   final String price;
   final String imagepath, description;
-  final String category;
 
-  Product(
+  Product1(
       {required this.name,
       required this.price,
       required this.imagepath,
-      required this.description,
-      required this.category
-      });
+      required this.description});
 
   // static List<Product> products = [
   //   Product(
@@ -46,17 +43,14 @@ class Product {
   //           "images/office.png",
   //       description: "The Forward-thinking design Shoe"),
   // ];
-  static Product fromSnapshot(DocumentSnapshot snap){
-    Product product= Product(
+  static Product1 fromSnapshot(DocumentSnapshot snap){
+    Product1 product= Product1(
       name: snap['name'], 
       price: snap['price'], 
       imagepath: snap['imagepath'], 
-      description: snap['description'],
-      category: snap['category']
-     );
+      description: snap['description']);
       return product;
   }
 
-  toLowerCase() {}
 
 }
