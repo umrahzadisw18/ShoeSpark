@@ -38,7 +38,6 @@ class CatalogProducts extends StatelessWidget {
                   final product = Product.fromFirestore(productData);
 
                   // Create and return widgets to display product details.
-                  //  return CatalogCard(index: index);
                   return Container(
                     margin: EdgeInsets.only(left: 25),
                     width: 250,
@@ -53,7 +52,7 @@ class CatalogProducts extends StatelessWidget {
                           borderRadius: BorderRadius.circular(12),
                           child: Image.network(
                             product.imagepath,
-                            height: 180,
+                            height: 150,
                           ),
                         ),
                         Text(
@@ -108,16 +107,6 @@ class CatalogProducts extends StatelessWidget {
                       ],
                     ),
                   );
-                  //  Obx(
-                  //       () => Flexible(
-                  //         child: ListView.builder(
-                  //           scrollDirection: Axis.horizontal,
-                  //             itemCount:// 4,
-                  //             productController.products.length,
-                  //             itemBuilder: (BuildContext context, int index) =>
-                  //                 CatalogCard(index: index)),
-                  //       ),
-                  //     );
                 }),
           );
         });

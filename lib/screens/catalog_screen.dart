@@ -9,6 +9,38 @@ class CatalogScreen extends StatefulWidget {
 }
 
 class _CatalogScreenState extends State<CatalogScreen>{
+  // TextEditingController searchController = TextEditingController();
+  // List<Product> filteredShoes = [];
+
+  //    @override
+  // void initState() {
+  //   super.initState();
+  //   // Initialize the filtered list with all shoes.
+  //    final productDoc = FirestoreDB1().getAllProducts();
+  //   final productData = productDoc as Map<String, dynamic>; 
+  //   final product = Product.fromFirestore(productData);
+  //   filteredShoes = product as List<Product>;
+  //   // Listen to changes in the search input field.
+  //   searchController.addListener(filterShoes);
+  // }
+
+  // void filterShoes() {
+  //   final searchText = searchController.text.toLowerCase();
+  //   setState(() {
+  //     final product= Product as List<Product>;
+  //     // Update the filtered list based on the search text.
+  //     filteredShoes =  product.where((Product) {
+  //       return Product.name.toLowerCase().contains(searchText);
+  //     }).toList();
+  //   });
+  // }
+
+  // @override
+  // void dispose() {
+  //   // Dispose of the controller when the widget is removed.
+  //   searchController.dispose();
+  //   super.dispose();
+  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +59,7 @@ class _CatalogScreenState extends State<CatalogScreen>{
             child: SizedBox(
               height: 35,
               child: TextField(
-                //     onChanged: (value) => _runFilter(value),
+      //          controller: searchController,
                 decoration: InputDecoration(
                     hintText: "Search",
                     suffixIcon: Icon(Icons.search)),

@@ -17,74 +17,74 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final user = FirebaseAuth.instance.currentUser!;
-    final CartController controller = Get.find();
-  // int _Selectedindex = 0;
-  // void navigateBottombar(int index) {
-  //   setState(() {
-  //     _Selectedindex = index;
-  //   });
-  // }
-  // final List<Widget> _pages = [
-  //   CatalogScreen(),
-  //   CartScreen(),
-  // ];
+  final CartController controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          bottom: TabBar(tabs: 
-          [
-            Tab(text: "Women",),
-            Tab(text: "Men",),
-            Tab(text: "Kids",)
-          ]),
-          title: Center(child: Text("Shoe Spark",
-            style: TextStyle(
-              fontSize: 25,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 1,
-            ),
-          )),
-          
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          leading: Builder(builder: (context) {
-            return IconButton(
-              icon: Padding(
-                padding: const EdgeInsets.only(left: 18.0),
-                child: Icon(
-                  Icons.menu,
-                  color: Colors.black,
-                ),
+            bottom: TabBar(tabs: [
+              Tab(
+                text: "Women",
               ),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-            );
-          }),
-          actions:[ Builder(builder: (context) {
-            return IconButton(
-              icon: Padding(
-                padding: const EdgeInsets.only(left: 18.0),
-                child: Badge(
-                  label: Text(
-                  controller.products.length.toString()),
+              Tab(
+                text: "Men",
+              ),
+              Tab(
+                text: "Kids",
+              )
+            ]),
+            title: Center(
+                child: Text(
+              "Shoe Spark",
+              style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1,
+              ),
+            )),
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            leading: Builder(builder: (context) {
+              return IconButton(
+                icon: Padding(
+                  padding: const EdgeInsets.only(left: 18.0),
                   child: Icon(
-                    Icons.shopping_cart,
+                    Icons.menu,
                     color: Colors.black,
-                    size: 30,
                   ),
                 ),
-              ),
-              onPressed: () {
-            Navigator.push(context,MaterialPageRoute(builder:((context) => CartScreen())));
-              },
-            );
-          }),
-          ] 
-        ),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+              );
+            }),
+            actions: [
+              Builder(builder: (context) {
+                return IconButton(
+                  icon: Padding(
+                    padding: const EdgeInsets.only(left: 18.0),
+                    child: Badge(
+                      label: Text(//"2"
+                        controller.products.length.toString()
+                        ),
+                      child: Icon(
+                        Icons.shopping_cart,
+                        color: Colors.black,
+                        size: 30,
+                      ),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) => CartScreen())));
+                  },
+                );
+              }),
+            ]),
         drawer: Drawer(
           backgroundColor: Colors.grey[900],
           child: Column(
@@ -160,32 +160,32 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         backgroundColor: Colors.grey[300],
-        floatingActionButton:  Container(
+        floatingActionButton: Container(
           height: 70,
           width: 80,
           child: FloatingActionButton(
-            tooltip: 'Check your Cart',
-          shape: CircleBorder(),
-            elevation: 0.0,
-            child: new Icon(Icons.shopping_bag, color: Colors.grey[700],size: 40,),
-            backgroundColor:Colors.grey.shade100,
-              onPressed: (){
-          Navigator.push(context,MaterialPageRoute(builder:((context) => CartScreen())));
-              } ), ),
-    floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-  
-        // bottomNavigationBar: BottomNavbar(
-        //   onTabChange: (index) => _Selectedindex,
-        //   //navigateBottombar(index),
-        // ),
-        body:TabBarView(
+              tooltip: 'Check your Cart',
+              shape: CircleBorder(),
+              elevation: 0.0,
+              child: new Icon(
+                Icons.shopping_bag,
+                color: Colors.grey[700],
+                size: 40,
+              ),
+              backgroundColor: Colors.grey.shade100,
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: ((context) => CartScreen())));
+              }),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        body: TabBarView(
           children: [
             CatalogScreen(),
             MenCatalogScreen(),
             KidsCatalogScreen(),
-        ],),
-        
-        //  _pages[_Selectedindex],
+          ],
+        ),
       ),
     );
   }

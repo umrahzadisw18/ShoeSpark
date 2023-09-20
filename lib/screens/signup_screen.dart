@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shopping_cart/resuableWidgets/reusable_widget.dart';
 import 'package:shopping_cart/screens/home_page.dart';
 
@@ -14,9 +15,9 @@ class _SignUpState extends State<SignUp> {
   TextEditingController _emailTextController = TextEditingController();
   TextEditingController _passwordTextController = TextEditingController();
   TextEditingController _usernameTextController = TextEditingController();
-   final GlobalKey<FormState> _key= GlobalKey<FormState>();
-   String errorMessage= '';
-  
+  final GlobalKey<FormState> _key = GlobalKey<FormState>();
+  String errorMessage = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,42 +48,55 @@ class _SignUpState extends State<SignUp> {
                   SizedBox(
                     height: 20,
                   ),
-                  reusableTextField("Enter UserName", Icons.person_outline, false,
-                      _usernameTextController,),
+                  reusableTextField(
+                    "Enter UserName",
+                    Icons.person_outline,
+                    false,
+                    _usernameTextController,
+                  ),
                   SizedBox(
                     height: 20,
                   ),
-                  reusableTextField("Enter Email-Id", Icons.person_outline, false,
-                      _emailTextController,),
+                  reusableTextField(
+                    "Enter Email-Id",
+                    Icons.person_outline,
+                    false,
+                    _emailTextController,
+                  ),
                   SizedBox(
                     height: 20,
                   ),
-                  reusableTextField("Enter Password", Icons.lock_outline, true,
-                      _passwordTextController,),
+                  reusableTextField(
+                    "Enter Password",
+                    Icons.lock_outline,
+                    true,
+                    _passwordTextController,
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Center(child: Text(errorMessage, 
-                    style: TextStyle(color: Colors.red))),
+                    child: Center(
+                        child: Text(errorMessage,
+                            style: TextStyle(color: Colors.red))),
                   ),
                   SignInSignupButton(context, false, () {
-                    if(_key.currentState!.validate()){
-                    //try{
-                    FirebaseAuth.instance.createUserWithEmailAndPassword(
-                            email: _emailTextController.text,
-                            password: _passwordTextController.text)
-                        .then((value) {
-                      print("New Account Created");
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: ((context) => HomePage())));
-                    })
-                    .onError((error, stackTrace) {
-                    errorMessage = error.toString();
-                    }
-                    );
-                      // errorMessage='';
-                      // } on FirebaseAuthException catch(error){
-                      //   errorMessage= error.toString();
-                      // }
+                    if (_key.currentState!.validate()) {
+                      //try{
+                      FirebaseAuth.instance
+                          .createUserWithEmailAndPassword(
+                              email: _emailTextController.text,
+                              password: _passwordTextController.text)
+                          .then((value) {
+                        print("New Account Created");
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: ((context) => HomePage())));
+                      }).onError((error, stackTrace) {
+                        Get.snackbar("Error", error.toString(),
+                            icon: Icon(Icons.error_outline_rounded),
+                            snackPosition: SnackPosition.TOP,
+                            duration: Duration(seconds: 2));
+                      });
                     }
                   })
                 ],

@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:shopping_cart/controller/cart_binding.dart';
 import 'package:shopping_cart/screens/signin_screen.dart';
 
 void main() async{
@@ -8,6 +9,7 @@ void main() async{
   await Firebase.initializeApp();
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
+    initialBinding: CartBinding() ,
     home:MyApp()));
 }
 
