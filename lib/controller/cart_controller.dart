@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopping_cart/model/product_model.dart';
 
@@ -20,7 +19,7 @@ class CartController extends GetxController {
 
   void removeProducts(Product product) {
     if (_products.containsKey(product) && _products[product] == 1) {
-      _products.removeWhere((key, value) => Key == product);
+      _products.remove(product);
     } else {
       _products[product] -= 1;
     }
@@ -34,6 +33,6 @@ class CartController extends GetxController {
       .map((product) => product.key.price * product.value)
       .toList()
       .reduce((value, element) => value+element);
-     // .toStringAsFixed(2);
+      //.toStringAsFixed(2);
     
 }

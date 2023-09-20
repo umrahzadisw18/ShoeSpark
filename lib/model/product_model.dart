@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 class Product {
   final String name;
@@ -46,17 +46,24 @@ class Product {
   //           "images/office.png",
   //       description: "The Forward-thinking design Shoe"),
   // ];
-  static Product fromSnapshot(DocumentSnapshot snap){
-    Product product= Product(
-      name: snap['name'], 
-      price: snap['price'], 
-      imagepath: snap['imagepath'], 
-      description: snap['description'],
-      category: snap['category']
-     );
-      return product;
+  // static Product fromSnapshot(DocumentSnapshot snap){
+  //   Product product= Product(
+  //     name: snap['name'], 
+  //     price: snap['price'], 
+  //     imagepath: snap['imagepath'], 
+  //     description: snap['description'],
+  //     category: snap['category']
+  //    );
+  //     return product;
+  // }
+   factory Product.fromFirestore(Map<String, dynamic> data) {
+    return Product(
+      name: data['name'] ?? '',
+      price: data['price'] ?? '',
+      description: data['description'] ?? '',
+      category: data['category'] ?? '', 
+      imagepath: data['imagepath'] ?? '',
+    );
   }
-
-  toLowerCase() {}
-
 }
+

@@ -78,6 +78,10 @@ class CartProductCard extends StatelessWidget {
               controller.addProducts(product);
             }, 
             icon: Icon(Icons.add_circle)),
+            IconButton(onPressed: () {
+              controller.removeProducts(product);
+            }, 
+            icon: Icon(Icons.delete)),
           ],
         ),
       ),

@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shopping_cart/controller/cart_controller.dart';
 import 'package:shopping_cart/screens/cart_screen.dart';
 import 'package:shopping_cart/screens/catalog_screen.dart';
 import 'package:shopping_cart/screens/kids_catalog.dart';
@@ -15,7 +17,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final user = FirebaseAuth.instance.currentUser!;
-  //  final CartController controller = Get.find();
+    final CartController controller = Get.find();
   // int _Selectedindex = 0;
   // void navigateBottombar(int index) {
   //   setState(() {
@@ -67,8 +69,8 @@ class _HomePageState extends State<HomePage> {
               icon: Padding(
                 padding: const EdgeInsets.only(left: 18.0),
                 child: Badge(
-                  label: Text('2'),
-                  //'$controller.products.length'),
+                  label: Text(
+                  controller.products.length.toString()),
                   child: Icon(
                     Icons.shopping_cart,
                     color: Colors.black,
